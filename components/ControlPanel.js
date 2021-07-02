@@ -1,31 +1,42 @@
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
+import { equals } from "ramda"
+
 import { useColorState } from "utils/data"
 import ConditionalIconButton from "components/ConditionalIconButton"
 import IconButton from "components/IconButton"
+import ButtonBox from "styles/ButtonBox"
 
 const BackButton = props => <IconButton {...props} icon="backward" />
 const NextButton = props => <IconButton {...props} icon="forward" />
 const FlipButton = props => <IconButton {...props} icon="sync" />
-const PlayPauseButton = ({ $isPlaying }) => (
+const PlayPauseButton = ({ onClick, $isPlaying }) => (
   <ConditionalIconButton
+    onClick={onClick}
     icon="stop"
     conditions={[
-      [x => x === true, () => "stop"],
-      [x => x === false, () => "play"],
+      [equals(true), () => <Icon icon="stop" />],
+      [equals(false), () => <Icon icon="play" />],
     ]}
     state={$isPlaying}
   />
 )
 
 function ControlPanel() {
-  const { $palette, $themeName, prevColor, nextColor, togglePlaying } =
-    useColorState()
+  const {
+    $palette,
+    $themeName,
+    prevColor,
+    nextColor,
+    togglePlaying,
+    $isPlaying,
+  } = useColorState()
   return (
-    <div>
+    <ButtonBox>
       <BackButton onClick={prevColor} />
-      <PlayPauseButton onClick={togglePlaying} />
+      <PlayPauseButton onClick={togglePlaying} $isPlaying={$isPlaying} />
       <FlipButton />
       <NextButton onClick={nextColor} />
-    </div>
+    </ButtonBox>
   )
 }
 

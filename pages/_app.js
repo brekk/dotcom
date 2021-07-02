@@ -8,7 +8,7 @@ const Site = ({ Component, pageProps }) => (
   <>
     <Style theme={theme} />
     <ColorStateProvider>
-      <ThemeProvider theme={globalStyler(theme)}>
+      <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
     </ColorStateProvider>

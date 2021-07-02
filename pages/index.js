@@ -6,6 +6,7 @@ import Header from "components/Header"
 
 import Logo from "public/logo.svg"
 import { log } from "utils/log"
+import { fore, back } from "utils/style"
 
 export default function Home(props) {
   const theme = useTheme()
@@ -17,7 +18,7 @@ export default function Home(props) {
         <meta name="description" content="The Portfolio of Brekk Bockrath" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Logo />
+      <Logo style={{ fill: back(props) }} />
       <ControlPanel />
       <Header />
     </div>
