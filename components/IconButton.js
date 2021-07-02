@@ -5,7 +5,6 @@ import "utils/icons"
 
 function IconButton({ onClick, icon }) {
   const theme = useTheme()
-  console.log("ICON THEME", theme)
   return (
     <Button onClick={onClick} theme={theme}>
       <Icon icon={icon} />

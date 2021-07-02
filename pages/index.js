@@ -10,7 +10,6 @@ import { fore, back } from "utils/style"
 
 export default function Home(props) {
   const theme = useTheme()
-  log.component("Home", { props, theme })
   return (
     <div>
       <Head>
@@ -18,7 +17,7 @@ export default function Home(props) {
         <meta name="description" content="The Portfolio of Brekk Bockrath" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Logo style={{ fill: back(props) }} />
+      <Logo style={{ fill: fore({ theme }) }} />
       <ControlPanel />
       <Header />
     </div>

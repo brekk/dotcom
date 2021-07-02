@@ -7,7 +7,7 @@ import colors from "public/colors.json"
 
 export const ColorState = createContext({})
 
-export function ColorStateProvider({ children }) {
+export function ColorStateProvider({ children, $isFlipped, flipColors }) {
   const pickColor = () => unusual.pickKey(colors)
   const grabColor = prop($, colors)
   // useState conventions:
@@ -36,12 +36,6 @@ export function ColorStateProvider({ children }) {
     }
   }
   const nextColor = pipe(pickColor, pushColor)
-  // flip state
-  const [$isFlipped, __setFlipped] = useState(false)
-  const flipColor = () => {
-    if ($isFlipped) {
-    }
-  }
   // play state
   const [$isPlaying, __setPlaying] = useState(true)
   const togglePlaying = () => __setPlaying(!$isPlaying)
@@ -51,10 +45,10 @@ export function ColorStateProvider({ children }) {
     $colorStack,
     $isFlipped,
     $isPlaying,
-    __setFlipped,
     __setPlaying,
     prevColor,
     nextColor,
+    flipColors,
     togglePlaying,
   }
   return <ColorState.Provider value={state}>{children}</ColorState.Provider>

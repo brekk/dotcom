@@ -29,12 +29,13 @@ function ControlPanel() {
     nextColor,
     togglePlaying,
     $isPlaying,
+    flipColors,
   } = useColorState()
   return (
     <ButtonBox>
       <BackButton onClick={prevColor} />
       <PlayPauseButton onClick={togglePlaying} $isPlaying={$isPlaying} />
-      <FlipButton />
+      <FlipButton onClick={flipColors} />
       <NextButton onClick={nextColor} />
     </ButtonBox>
   )

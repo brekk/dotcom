@@ -1,5 +1,5 @@
 import { css, Global } from "@emotion/react"
-import { pathOr } from "ramda"
+import { pipe, propOr, pathOr } from "ramda"
 
 export const COLORS = Object.freeze({
   BLACK: "black",
@@ -15,11 +15,21 @@ export const theme = {
   },
 }
 
-export const getForeground = pathOr(COLORS.BLACK, ["colors", "fore"])
-export const getBackground = pathOr(COLORS.WHITE, ["colors", "back"])
+export const flipTest = propOr(false, "flipped")
 
-export const fore = pathOr(COLORS.BLACK, ["theme", "colors", "fore"])
-export const back = pathOr(COLORS.WHITE, ["theme", "colors", "back"])
+export const getForeground = theme =>
+  pipe(flipTest, flipped =>
+    pathOr(COLORS.BLACK, ["colors", !flipped ? "fore" : "back"], theme)
+  )(theme)
+
+export const getBackground = theme =>
+  pipe(flipTest, flipped =>
+    pathOr(COLORS.WHITE, ["colors", !flipped ? "back" : "fore"], theme)
+  )(theme)
+
+export const getTheme = propOr({}, "theme")
+export const fore = pipe(getTheme, getForeground)
+export const back = pipe(getTheme, getBackground)
 
 export const globalStyler = givenTheme => css`
   html,
