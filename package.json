@@ -1,0 +1,36 @@
+{
+  "name": "brekk.is3",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "chance": "^1.1.7",
+    "envtrace": "^0.0.2",
+    "next": "11.0.1",
+    "ramda": "^0.27.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "unusual": "^0.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@svgr/webpack": "^5.5.0",
+    "eslint": "7.29.0",
+    "eslint-config-next": "11.0.1",
+    "jest": "^27.0.6",
+    "nps": "^5.10.0",
+    "snang": "^0.2.7"
+  }
+}
