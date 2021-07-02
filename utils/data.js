@@ -1,14 +1,19 @@
 import { prop, pipe, __ as $, length } from "ramda"
 import { createContext, useContext, useState } from "react"
+import { ThemeProvider } from "@emotion/react"
 
+import { Style, theme, globalStyler } from "utils/style"
 import unusual from "utils/random"
 
 import colors from "public/colors.json"
 
 export const ColorState = createContext({})
 
-export function ColorStateProvider({ children, $isFlipped, flipColors }) {
+export function ColorStateProvider({ children }) {
   const pickColor = () => unusual.pickKey(colors)
+  // flip state
+  const [$isFlipped, __setFlipped] = useState(false)
+  const flipColors = () => __setFlipped(!$isFlipped)
   const grabColor = prop($, colors)
   // useState conventions:
   // - $ denotes state vars
@@ -17,6 +22,7 @@ export function ColorStateProvider({ children, $isFlipped, flipColors }) {
   const [$themeName, __setThemeName] = useState("yemen")
   // color values
   const [$palette, __setPalette] = useState(colors[$themeName])
+  const dynamicTheme = { ...theme, flipped: $isFlipped, colors: $palette }
   // previous colors
   const [$colorStack, __setColorStack] = useState([])
   const setColor = c => {
@@ -50,6 +56,7 @@ export function ColorStateProvider({ children, $isFlipped, flipColors }) {
     nextColor,
     flipColors,
     togglePlaying,
+    theme: dynamicTheme,
   }
   return <ColorState.Provider value={state}>{children}</ColorState.Provider>
 }
@@ -60,4 +67,13 @@ export const useColorState = () => {
     throw new Error("useColorState must be used within a ColorStateProvider")
   }
   return context
+}
+export const Themed = ({ children }) => {
+  const data = useColorState()
+  return (
+    <>
+      <Style theme={data.theme} />
+      <ThemeProvider theme={data.theme}>{children}</ThemeProvider>
+    </>
+  )
 }
