@@ -5,6 +5,7 @@ import ControlPanel from "components/ControlPanel"
 import Header from "components/Header"
 import OpenSourcePackages from "components/OpenSourcePackages"
 import Footer from "components/Footer"
+import { LogoBox } from "styles/Logo"
 
 import Logo from "public/logo.svg"
 import { log } from "utils/log"
@@ -19,7 +20,9 @@ export default function Home(props) {
         <meta name="description" content="The Portfolio of Brekk Bockrath" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Logo style={{ fill: fore({ theme }) }} />
+      <LogoBox theme={theme}>
+        <Logo />
+      </LogoBox>
       <Header />
       <OpenSourcePackages />
       <Footer />

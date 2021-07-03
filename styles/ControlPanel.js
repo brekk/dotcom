@@ -4,8 +4,8 @@ export const ButtonBox = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-  width: 15rem;
   justify-content: center;
+  align-items: center;
 `
 
 export const ControlPanel = styled.div`

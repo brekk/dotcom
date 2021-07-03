@@ -12,7 +12,7 @@ export const OpenSourcePackage = styled.a`
   svg {
     fill: ${fore};
     .secondary {
-      fill: ${mix(1 / 3)} !important;
+      fill: ${mix(1 / 2)};
     }
   }
   &:hover {
@@ -22,7 +22,7 @@ export const OpenSourcePackage = styled.a`
       fill: ${back};
     }
     .secondary {
-      fill: ${mix(1 / 3)} !important;
+      fill: ${mix(1 / 2)};
     }
   }
   &:last-of-type {
@@ -43,7 +43,7 @@ export const PackageDetails = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 0.5rem 0;
+  margin-bottom: 0.5rem;
   align-items: center;
 `
 export const PackageName = styled.strong`
@@ -56,8 +56,9 @@ export const PackageSummary = styled.span`
 `
 export const Installation = styled.pre`
   font-family: "Fira Code", monospace;
-  background-color: ${mix(0.5)};
+  background-color: ${mix(2 / 3)};
   margin-top: 0.5rem;
+  margin-bottom: 0;
   padding: 0.5rem 1rem;
-  color: ${back};
+  color: ${fore};
 `

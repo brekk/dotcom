@@ -5,6 +5,7 @@ import {
   Options,
 } from "styles/OpenSourcePackages"
 import OpenSourcePackage from "./OpenSourcePackage"
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 
 import Blem from "logos/blem.svg"
 import Bodypaint from "logos/bodypaint.svg"
@@ -68,13 +69,8 @@ function OpenSourcePackages() {
   return (
     <OSP>
       <Title>Open Source Modules</Title>
-      <Options>
-        <input
-          type="checkbox"
-          checked={!$yarnOrNPM ? "checked" : ""}
-          onClick={toggleYarnOrNPM}
-        />{" "}
-        Prefer <code>npm</code>?
+      <Options onClick={toggleYarnOrNPM}>
+        <Icon icon={$yarnOrNPM ? "circle" : "check-circle"} /> Prefer npm?
       </Options>
       {packages.map(pkg => (
         <OpenSourcePackage {...pkg} key={pkg.name} $yarnOrNPM={$yarnOrNPM} />

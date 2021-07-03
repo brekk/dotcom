@@ -4,6 +4,7 @@ import { equals } from "ramda"
 import { useBrekkState } from "utils/data"
 import ConditionalIconButton from "components/ConditionalIconButton"
 import IconButton from "components/IconButton"
+import Button from "styles/Button"
 import {
   ControlPanel as CP,
   ThemeDetails,
@@ -45,7 +46,7 @@ function ControlPanel({ showMeta = false }) {
   return (
     <CP>
       <ButtonBox>
-        {$colorStack.length > 0 && $colorStack.length}
+        <Button unlined>{$colorStack.length > 0 && $colorStack.length}</Button>
         <BackButton onClick={prevColor} />
         <PlayPauseButton onClick={togglePlaying} $isPlaying={$isPlaying} />
         <FlipButton onClick={flipColors} />
@@ -67,11 +68,6 @@ function ControlPanel({ showMeta = false }) {
             ))}
           </ThemeDetailList>
         </ThemeDetails>
-      )}
-      {showMeta && (
-        <pre>
-          <code>{JSON.stringify($colorStack, null, 2)}</code>
-        </pre>
       )}
     </CP>
   )

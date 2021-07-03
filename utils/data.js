@@ -1,4 +1,4 @@
-import { nth, prop, pipe, __ as $, length } from "ramda"
+import { nth, last, prop, pipe, __ as $, length } from "ramda"
 import { createContext, useContext, useState } from "react"
 import { ThemeProvider } from "@emotion/react"
 
@@ -7,9 +7,9 @@ import unusual from "utils/random"
 
 import colors from "public/colors.json"
 
-export const ColorState = createContext({})
+export const BrekkState = createContext({})
 
-export function ColorStateProvider({ children }) {
+export function BrekkStateProvider({ children }) {
   const pickColor = () => unusual.pickKey(colors)
   // npm or yarn
   const [$yarnOrNPM, __setPackageManager] = useState(true)
@@ -27,22 +27,23 @@ export function ColorStateProvider({ children }) {
   const [$palette, __setPalette] = useState(colors[$themeName])
   const dynamicTheme = { ...theme, flipped: $isFlipped, colors: $palette }
   // previous colors
-  const [$colorStack, __setColorStack] = useState([])
+  const [$colorStack, __setColorStack] = useState([$themeName])
   const setColor = c => {
     console.log("setting color to ", c)
     __setThemeName(c)
     __setPalette(grabColor(c))
   }
   const pushColor = c => {
+    const stack = length($colorStack) <= 19 ? $colorStack : $colorStack.slice(1)
     setColor(c)
-    __setColorStack($colorStack.concat(c))
+    console.log("adding color to stack", c)
+    __setColorStack(stack.concat(c))
   }
   const prevColor = () => {
     const size = length($colorStack)
-    if (size) {
-      const last = nth(-1, $colorStack)
-      console.log("LAST", last)
-      setColor(last)
+    if (size > 1) {
+      const nextToLast = nth(-2, $colorStack)
+      setColor(nextToLast)
       __setColorStack($colorStack.slice(0, -1))
     }
   }
@@ -65,13 +66,13 @@ export function ColorStateProvider({ children }) {
     togglePlaying,
     theme: dynamicTheme,
   }
-  return <ColorState.Provider value={state}>{children}</ColorState.Provider>
+  return <BrekkState.Provider value={state}>{children}</BrekkState.Provider>
 }
 
 export const useBrekkState = () => {
-  const context = useContext(ColorState)
+  const context = useContext(BrekkState)
   if (!context) {
-    throw new Error("useBrekkState must be used within a ColorStateProvider")
+    throw new Error("useBrekkState must be used within a BrekkStateProvider")
   }
   return context
 }
