@@ -1,8 +1,9 @@
 import IconLink from "components/IconLink"
+import List from "styles/IconLinkList"
 
 function IconLinkList({ list }) {
   return (
-    <ul>
+    <List>
       {list.map(({ text, icon, href }) => (
         <li key={icon}>
           <IconLink icon={icon} href={href}>
@@ -10,7 +11,7 @@ function IconLinkList({ list }) {
           </IconLink>
         </li>
       ))}
-    </ul>
+    </List>
   )
 }
 

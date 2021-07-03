@@ -1,4 +1,4 @@
-import { prop, pipe, __ as $, length } from "ramda"
+import { nth, prop, pipe, __ as $, length } from "ramda"
 import { createContext, useContext, useState } from "react"
 import { ThemeProvider } from "@emotion/react"
 
@@ -26,6 +26,7 @@ export function ColorStateProvider({ children }) {
   // previous colors
   const [$colorStack, __setColorStack] = useState([])
   const setColor = c => {
+    console.log("setting color to ", c)
     __setThemeName(c)
     __setPalette(grabColor(c))
   }
@@ -35,8 +36,9 @@ export function ColorStateProvider({ children }) {
   }
   const prevColor = () => {
     const size = length($colorStack)
-    if (size > 1) {
-      const last = $colorStack[$colorStack.length - 1]
+    if (size) {
+      const last = nth(-1, $colorStack)
+      console.log("LAST", last)
       setColor(last)
       __setColorStack($colorStack.slice(0, -1))
     }
