@@ -1,4 +1,9 @@
 import { useBrekkState } from "utils/data"
+import {
+  Title,
+  OpenSourcePackages as OSP,
+  Options,
+} from "styles/OpenSourcePackages"
 import OpenSourcePackage from "./OpenSourcePackage"
 
 import Blem from "logos/blem.svg"
@@ -6,7 +11,7 @@ import Bodypaint from "logos/bodypaint.svg"
 import Brainwave from "logos/brainwave.svg"
 import Breakpoints from "logos/breakpoints.svg"
 import Entrust from "logos/entrust.svg"
-import Utility from "logos/f-utility.svg"
+import FUtility from "logos/f-utility.svg"
 import Flexeca from "logos/flexeca.svg"
 import Gitparty from "logos/gitparty.svg"
 import HalfBaked from "logos/half-baked.svg"
@@ -32,25 +37,49 @@ const packages = [
     summary: "tacit programming utility library",
   },
   { logo: Blem, name: "blem", summary: "dead-simple BEM notation library" },
+  { logo: Snang, name: "snang", summary: "transform stdin with tacit JS" },
+  { logo: FUtility, name: "f-utility", summary: "functional utilities" },
+  { logo: Bodypaint, name: "bodypaint", summary: "responsive CSS-in-JS" },
+  {
+    logo: Breakpoints,
+    org: "open-sorcerers",
+    name: "breakpoints",
+    summary: "manage complex breakpoints",
+  },
+  { logo: Torpor, name: "torpor", summary: "futuristic fs" },
+  { logo: Handrail, name: "handrail", summary: "add safety with Eithers" },
+  { logo: Ljs2, name: "ljs2", summary: "literate programming library for js" },
+  {
+    logo: Phantomscript,
+    name: "phantomscript",
+    summary: "zero-width character utility",
+  },
+  { logo: Gitparty, name: "gitparty", summary: "git log on steroids" },
+  {
+    logo: Brainwave,
+    name: "brainwave",
+    summary: "orchestrate frontmatter content",
+  },
 ]
 
 function OpenSourcePackages() {
   const { $yarnOrNPM, toggleYarnOrNPM } = useBrekkState()
 
   return (
-    <>
-      <div>
+    <OSP>
+      <Title>Open Source Modules</Title>
+      <Options>
         <input
           type="checkbox"
           checked={!$yarnOrNPM ? "checked" : ""}
           onClick={toggleYarnOrNPM}
         />{" "}
-        Prefer NPM?
-      </div>
+        Prefer <code>npm</code>?
+      </Options>
       {packages.map(pkg => (
         <OpenSourcePackage {...pkg} key={pkg.name} $yarnOrNPM={$yarnOrNPM} />
       ))}
-    </>
+    </OSP>
   )
 }
 export default OpenSourcePackages

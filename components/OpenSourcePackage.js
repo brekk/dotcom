@@ -10,8 +10,9 @@ import {
 import { fore } from "utils/style"
 import { useBrekkState } from "utils/data"
 
-function OpenSourcePackage({ logo: Logo, name, summary, $yarnOrNPM }) {
+function OpenSourcePackage({ logo: Logo, name, summary, org, $yarnOrNPM }) {
   const theme = useTheme()
+  const pkg = org ? `@${org}/${name}` : name
   return (
     <OSP>
       <LogoContainer>
@@ -22,7 +23,7 @@ function OpenSourcePackage({ logo: Logo, name, summary, $yarnOrNPM }) {
         <PackageSummary>{summary}</PackageSummary>
       </PackageDetails>
       <Installation>
-        {$yarnOrNPM ? `yarn add ${name}` : `npm i ${name}`}
+        {$yarnOrNPM ? `yarn add ${pkg}` : `npm i ${pkg}`}
       </Installation>
     </OSP>
   )
