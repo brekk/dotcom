@@ -3,6 +3,7 @@ import { useTheme } from "@emotion/react"
 
 import ControlPanel from "components/ControlPanel"
 import Header from "components/Header"
+import OpenSourcePackages from "components/OpenSourcePackages"
 import Footer from "components/Footer"
 
 import Logo from "public/logo.svg"
@@ -20,6 +21,7 @@ export default function Home(props) {
       </Head>
       <Logo style={{ fill: fore({ theme }) }} />
       <Header />
+      <OpenSourcePackages />
       <Footer />
     </div>
   )

@@ -11,6 +11,9 @@ export const ColorState = createContext({})
 
 export function ColorStateProvider({ children }) {
   const pickColor = () => unusual.pickKey(colors)
+  // npm or yarn
+  const [$yarnOrNPM, __setPackageManager] = useState(true)
+  const toggleYarnOrNPM = () => __setPackageManager(!$yarnOrNPM)
   // flip state
   const [$isFlipped, __setFlipped] = useState(false)
   const flipColors = () => __setFlipped(!$isFlipped)
@@ -19,7 +22,7 @@ export function ColorStateProvider({ children }) {
   // - $ denotes state vars
   // - __ denotes state functions
   // color name
-  const [$themeName, __setThemeName] = useState("yemen")
+  const [$themeName, __setThemeName] = useState("raccoon")
   // color values
   const [$palette, __setPalette] = useState(colors[$themeName])
   const dynamicTheme = { ...theme, flipped: $isFlipped, colors: $palette }
@@ -53,6 +56,8 @@ export function ColorStateProvider({ children }) {
     $colorStack,
     $isFlipped,
     $isPlaying,
+    $yarnOrNPM,
+    toggleYarnOrNPM,
     __setPlaying,
     prevColor,
     nextColor,
@@ -63,15 +68,15 @@ export function ColorStateProvider({ children }) {
   return <ColorState.Provider value={state}>{children}</ColorState.Provider>
 }
 
-export const useColorState = () => {
+export const useBrekkState = () => {
   const context = useContext(ColorState)
   if (!context) {
-    throw new Error("useColorState must be used within a ColorStateProvider")
+    throw new Error("useBrekkState must be used within a ColorStateProvider")
   }
   return context
 }
 export const Themed = ({ children }) => {
-  const data = useColorState()
+  const data = useBrekkState()
   return (
     <>
       <Style theme={data.theme} />

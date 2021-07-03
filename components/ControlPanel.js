@@ -1,7 +1,7 @@
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 import { equals } from "ramda"
 
-import { useColorState } from "utils/data"
+import { useBrekkState } from "utils/data"
 import ConditionalIconButton from "components/ConditionalIconButton"
 import IconButton from "components/IconButton"
 import {
@@ -41,7 +41,7 @@ function ControlPanel({ showMeta = false }) {
     togglePlaying,
     flipColors,
     theme,
-  } = useColorState()
+  } = useBrekkState()
   return (
     <CP>
       <ButtonBox>
@@ -68,9 +68,11 @@ function ControlPanel({ showMeta = false }) {
           </ThemeDetailList>
         </ThemeDetails>
       )}
-      <pre>
-        <code>{JSON.stringify($colorStack, null, 2)}</code>
-      </pre>
+      {showMeta && (
+        <pre>
+          <code>{JSON.stringify($colorStack, null, 2)}</code>
+        </pre>
+      )}
     </CP>
   )
 }

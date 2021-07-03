@@ -1,5 +1,6 @@
 import { css, Global } from "@emotion/react"
-import { pipe, propOr, pathOr } from "ramda"
+import { of, curry, pipe, ap, propOr, pathOr } from "ramda"
+import mixColor from "mix-color"
 
 export const COLORS = Object.freeze({
   BLACK: "black",
@@ -30,6 +31,9 @@ export const getBackground = theme =>
 export const getTheme = propOr({}, "theme")
 export const fore = pipe(getTheme, getForeground)
 export const back = pipe(getTheme, getBackground)
+export const mix = curry((balance, props) =>
+  pipe(of, ap([fore, back]), ([f, b]) => mixColor(f, b, balance))(props)
+)
 
 export const globalStyler = givenTheme => css`
   html,

@@ -4737,6 +4737,11 @@ minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
+mix-color@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/mix-color/-/mix-color-1.1.2.tgz#aa115c74152c71d59698e7bcfa9e45da8a03a8a9"
+  integrity sha512-dl0x92sQ+cMM37GVo5MpLJfPbLxFhyqTrf6paYp/k+1rRPK1aPPPI7xajEI+GtU+eWnCsAW2Bg1q0rH1gLbI7w==
+
 mkdirp@~0.5.1:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
