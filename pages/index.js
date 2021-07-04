@@ -8,7 +8,6 @@ import Footer from "components/Footer"
 import { LogoBox } from "styles/Logo"
 
 import Logo from "public/logo.svg"
-import { log } from "utils/log"
 import { fore, back } from "utils/style"
 
 export default function Home(props) {

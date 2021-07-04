@@ -1,5 +1,14 @@
 import styled from "@emotion/styled"
-import { mix, fore, back } from "utils/style"
+import { mq, t, mix, fore, back } from "utils/style"
+
+const packageWidth = mq({
+  maxWidth: {
+    T0: "100%",
+    T1: "100%",
+    S0: "calc(50% - 2rem)",
+    S1: "calc(33.333% - 2rem)",
+  },
+})
 
 export const OpenSourcePackage = styled.a`
   display: flex;
@@ -9,8 +18,11 @@ export const OpenSourcePackage = styled.a`
   background: ${back};
   color: ${fore};
   cursor: pointer;
+  ${t(["border", "background", "color"])}
+  ${packageWidth}
   svg {
     fill: ${fore};
+    ${t("fill")}
     .secondary {
       fill: ${mix(1 / 2)};
     }
@@ -61,4 +73,6 @@ export const Installation = styled.pre`
   margin-bottom: 0;
   padding: 0.5rem 1rem;
   color: ${fore};
+  overflow: auto;
+  ${t(["background", "color"])}
 `

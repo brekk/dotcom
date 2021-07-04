@@ -1,8 +1,10 @@
 import { useBrekkState } from "utils/data"
 import {
-  Title,
+  Header,
   OpenSourcePackages as OSP,
   Options,
+  Packages,
+  Title,
 } from "styles/OpenSourcePackages"
 import OpenSourcePackage from "./OpenSourcePackage"
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
@@ -68,13 +70,17 @@ function OpenSourcePackages() {
 
   return (
     <OSP>
-      <Title>Open Source Modules</Title>
-      <Options onClick={toggleYarnOrNPM}>
-        <Icon icon={$yarnOrNPM ? "circle" : "check-circle"} /> Prefer npm?
-      </Options>
-      {packages.map(pkg => (
-        <OpenSourcePackage {...pkg} key={pkg.name} $yarnOrNPM={$yarnOrNPM} />
-      ))}
+      <Header>
+        <Title>Open Source Modules</Title>
+        <Options onClick={toggleYarnOrNPM}>
+          <Icon icon={$yarnOrNPM ? "circle" : "check-circle"} /> Prefer npm?
+        </Options>
+      </Header>
+      <Packages>
+        {packages.map(pkg => (
+          <OpenSourcePackage {...pkg} key={pkg.name} $yarnOrNPM={$yarnOrNPM} />
+        ))}
+      </Packages>
     </OSP>
   )
 }

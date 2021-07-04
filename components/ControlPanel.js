@@ -1,7 +1,10 @@
+import { useEffect, useState } from "react"
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 import { equals } from "ramda"
 
+import { Breakpoints } from "utils/style"
 import { useBrekkState } from "utils/data"
+import { query } from "utils/debug"
 import ConditionalIconButton from "components/ConditionalIconButton"
 import IconButton from "components/IconButton"
 import Button from "styles/Button"
@@ -43,6 +46,10 @@ function ControlPanel({ showMeta = false }) {
     flipColors,
     theme,
   } = useBrekkState()
+  const [$qs, __setQuery] = useState({})
+  useEffect(() => {
+    __setQuery(query())
+  }, [])
   return (
     <CP>
       <ButtonBox>
@@ -69,6 +76,7 @@ function ControlPanel({ showMeta = false }) {
           </ThemeDetailList>
         </ThemeDetails>
       )}
+      {$qs.debug && <Breakpoints />}
     </CP>
   )
 }

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { back, fore } from "utils/style"
+import { t, back, fore } from "utils/style"
 
 export const Link = styled.a`
   line-height: 1.5em;
@@ -11,6 +11,7 @@ export const Link = styled.a`
   font-size: 1em;
   color: ${fore};
   text-decoration: none;
+  ${t("color")}
   svg {
     max-width: 1em;
     max-height: 1em;
@@ -18,6 +19,8 @@ export const Link = styled.a`
     padding-bottom: 0.25rem;
     path {
       fill: ${fore};
+
+      ${t("fill")}
     }
   }
 `

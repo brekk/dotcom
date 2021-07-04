@@ -1,7 +1,15 @@
 import styled from "@emotion/styled"
-import { fore, back } from "utils/style"
-import { pipe } from "ramda"
-import trace from "utils/log"
+import { t, fore, back } from "utils/style"
+import { ifElse, pipe, propEq, equals } from "ramda"
+
+const whenUnlined = (a, b) => props =>
+  ifElse(
+    propEq("unlined", true),
+    () => a,
+    () => b
+  )(props)
+
+const twoOrThreeRem = whenUnlined("2rem", "3rem")
 
 export const Button = styled.button`
   display: flex;
@@ -14,9 +22,10 @@ export const Button = styled.button`
   background: ${back};
   margin: 0 0.25rem;
   border-radius: 5rem;
-  width: ${({ unlined }) => (unlined ? "2rem" : "3rem")};
-  height: ${({ unlined }) => (unlined ? "2rem" : "3rem")};
-  border: ${({ unlined }) => (unlined ? "0" : "2px")} solid ${fore};
+  width: ${twoOrThreeRem};
+  height: ${twoOrThreeRem};
+  border: ${whenUnlined("0", "2px")} solid ${fore};
+  ${t(["color", "background", "border"])}
   line-height: 3rem;
   cursor: pointer;
   svg {
@@ -29,6 +38,7 @@ export const Button = styled.button`
     max-height: 1.5rem;
     path {
       fill: ${fore};
+      ${t("fill")}
     }
   }
 `
