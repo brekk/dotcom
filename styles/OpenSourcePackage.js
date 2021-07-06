@@ -3,12 +3,13 @@ import { mq, t, mix, fore, back } from "utils/style"
 
 const packageWidth = mq({
   maxWidth: {
-    T0: "100%",
-    T1: "100%",
-    S0: "calc(50% - 2rem)",
-    S1: "calc(33.333% - 2rem)",
+    T0: "calc(100% - 2rem)",
+    S1: "calc(50% - 2rem)",
+    M2: "calc(33.333% - 6rem)",
   },
 })
+
+console.log("WIDTHS", packageWidth)
 
 export const OpenSourcePackage = styled.a`
   display: flex;
@@ -18,7 +19,7 @@ export const OpenSourcePackage = styled.a`
   background: ${back};
   color: ${fore};
   cursor: pointer;
-  ${t(["border", "background", "color"])}
+  ${t(["border", "background", "color", "width"])}
   ${packageWidth}
   svg {
     fill: ${fore};
