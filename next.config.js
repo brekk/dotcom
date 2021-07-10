@@ -1,6 +1,9 @@
+const path = require("path")
+const withMDX = require("@next/mdx")
+
 module.exports = {
   reactStrictMode: true,
-  webpack(config) {
+  webpack(config, options) {
     config.module.rules.push({
       test: /\.svg$/,
       use: [
@@ -16,6 +19,15 @@ module.exports = {
               ],
             },
           },
+        },
+      ],
+    })
+    config.module.rules.push({
+      test: /\.mdx/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: "@mdx-js/loader",
         },
       ],
     })

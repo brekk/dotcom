@@ -20,7 +20,9 @@ import {
 
 const BackButton = props => <IconButton {...props} icon="backward" />
 const NextButton = props => <IconButton {...props} icon="forward" />
-const FlipButton = props => <IconButton {...props} icon="sync" />
+const FlipButton = props => (
+  <IconButton {...props} icon="sync" animation="spin" />
+)
 const PlayPauseButton = ({ onClick, $isPlaying }) => (
   <ConditionalIconButton
     onClick={onClick}

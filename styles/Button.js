@@ -9,7 +9,13 @@ const whenUnlined = (a, b) => props =>
     () => b
   )(props)
 
-const twoOrThreeRem = whenUnlined("2rem", "3rem")
+const spinHover = ifElse(
+  propEq("animation", "spin"),
+  () => `transform: rotate(180deg);`,
+  () => `transform: rotate(0deg);`
+)
+
+const twoOrThreeRem = whenUnlined("1rem", "2.6rem")
 
 export const Button = styled.button`
   display: flex;
@@ -36,9 +42,20 @@ export const Button = styled.button`
     padding: 0;
     max-width: 1.5rem;
     max-height: 1.5rem;
+    ${t("transform")}
     path {
       fill: ${fore};
       ${t("fill")}
+    }
+  }
+  &:hover {
+    background: ${fore};
+    color: ${back};
+    svg {
+      ${spinHover}
+      path {
+        fill: ${back};
+      }
     }
   }
 `

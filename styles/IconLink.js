@@ -13,6 +13,7 @@ export const Link = styled.a`
   text-decoration: none;
   ${t("color")}
   svg {
+    min-width: 1rem;
     max-width: 1em;
     max-height: 1em;
     margin-right: 0.5rem;

@@ -3,9 +3,15 @@ import { cond, T } from "ramda"
 import Button from "styles/Button"
 import "utils/icons"
 
-function ConditionalIconButton({ onClick, conditions = [], icon, state }) {
+function ConditionalIconButton({
+  onClick,
+  conditions = [],
+  icon,
+  state,
+  ...props
+}) {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} {...props}>
       {conditions ? (
         cond([...conditions, icon ? [T, () => <Icon icon={icon} />] : []])(
           state

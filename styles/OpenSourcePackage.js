@@ -3,9 +3,9 @@ import { mq, t, mix, fore, back } from "utils/style"
 
 const packageWidth = mq({
   maxWidth: {
-    T0: "calc(100% - 2rem)",
-    S1: "calc(50% - 2rem)",
-    M2: "calc(33.333% - 6rem)",
+    T0: "calc(100% - 6rem)",
+    S1: "calc(50% - 4rem)",
+    M2: "calc(33.333% - 3.5rem)",
   },
 })
 
@@ -61,14 +61,15 @@ export const PackageDetails = styled.div`
 `
 export const PackageName = styled.strong`
   font-weight: bolder;
-  font-size: 1.2em;
-  margin-right: 1rem;
+  font-size: 1em;
+  margin-right: 0.5rem;
 `
 export const PackageSummary = styled.span`
   font-weight: 400;
 `
 export const Installation = styled.pre`
   font-family: "Fira Code", monospace;
+  font-size: 0.8rem;
   background-color: ${mix(2 / 3)};
   margin-top: 0.5rem;
   margin-bottom: 0;

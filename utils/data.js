@@ -1,5 +1,5 @@
 import { nth, last, prop, pipe, __ as $, length } from "ramda"
-import { createContext, useContext, useState } from "react"
+import { useEffect, createContext, useContext, useState } from "react"
 import { ThemeProvider } from "@emotion/react"
 
 import { Style, theme, globalStyler } from "utils/style"
@@ -66,6 +66,18 @@ export function BrekkStateProvider({ children }) {
     togglePlaying,
     theme: dynamicTheme,
   }
+  const nextOrFlip = () =>
+    unusual.integer({ min: 0, max: 3 }) === 3 ? flipColors() : nextColor()
+  useEffect(() => {
+    let interval
+    if ($isPlaying) {
+      interval = setInterval(nextOrFlip, 15e3)
+    }
+    return () => {
+      clearTimeout(interval)
+    }
+  }, [$isPlaying, nextColor])
+
   return <BrekkState.Provider value={state}>{children}</BrekkState.Provider>
 }
 

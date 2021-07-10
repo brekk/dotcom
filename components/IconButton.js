@@ -3,10 +3,10 @@ import Button from "styles/Button"
 import { useTheme } from "@emotion/react"
 import "utils/icons"
 
-function IconButton({ onClick, icon, unlined = false }) {
+function IconButton({ onClick, icon, ...props }) {
   const theme = useTheme()
   return (
-    <Button onClick={onClick} theme={theme} unlined={unlined}>
+    <Button onClick={onClick} theme={theme} {...props}>
       <Icon icon={icon} />
     </Button>
   )

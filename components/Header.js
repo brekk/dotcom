@@ -1,6 +1,11 @@
+import { useTheme } from "@emotion/react"
+
 import ControlPanel from "components/ControlPanel"
 import IconLink from "components/IconLink"
 import IconLinkList from "components/IconLinkList"
+import { H2, H1, Header as H, HeaderColumn } from "styles/Header"
+import { LogoBox } from "styles/Logo"
+import Logo from "public/logo.svg"
 
 const linkList = [
   { text: "Gitlab", icon: ["fab", "gitlab"], href: "https://gitlab.com/brekk" },
@@ -28,19 +33,27 @@ const linkList = [
 ]
 
 function Header() {
+  const theme = useTheme()
   return (
-    <header>
-      <ControlPanel />
-      <h1>Brekk Bockrath</h1>
-      <h2>JavaScript Engineer / Web Developer</h2>
-      <IconLink
-        icon={["fas", "file"]}
-        href="https://brekk.is/static/resume.pdf"
-      >
-        Resume / CV
-      </IconLink>
-      <IconLinkList list={linkList} />
-    </header>
+    <H>
+      <HeaderColumn>
+        <LogoBox theme={theme}>
+          <Logo />
+        </LogoBox>
+        <ControlPanel />
+      </HeaderColumn>
+      <HeaderColumn>
+        <H1>Brekk Bockrath</H1>
+        <H2>JavaScript Engineer / Web Developer</H2>
+        <IconLink
+          icon={["fas", "file"]}
+          href="https://brekk.is/static/resume.pdf"
+        >
+          Resume / CV
+        </IconLink>
+        <IconLinkList list={linkList} />
+      </HeaderColumn>
+    </H>
   )
 }
 

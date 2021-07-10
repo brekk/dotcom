@@ -55,13 +55,13 @@ const packages = [
   {
     logo: Phantomscript,
     name: "phantomscript",
-    summary: "zero-width character utility",
+    summary: "zero-width characters",
   },
   { logo: Gitparty, name: "gitparty", summary: "git log on steroids" },
   {
     logo: Brainwave,
     name: "brainwave",
-    summary: "orchestrate frontmatter content",
+    summary: "orchestrated frontmatter",
   },
 ]
 
