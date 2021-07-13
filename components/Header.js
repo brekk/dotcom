@@ -5,7 +5,7 @@ import IconLink from "components/IconLink"
 import IconLinkList from "components/IconLinkList"
 import { H2, H1, Header as H, HeaderColumn } from "styles/Header"
 import { LogoBox } from "styles/Logo"
-import Logo from "public/logo.svg"
+import Logo from "logos/brekk-is.svg"
 
 const linkList = [
   { text: "Gitlab", icon: ["fab", "gitlab"], href: "https://gitlab.com/brekk" },

@@ -52,11 +52,12 @@ function ControlPanel({ showMeta = false }) {
   useEffect(() => {
     __setQuery(query())
   }, [])
+  const hasPreviousColors = $colorStack.length > 1
   return (
     <CP>
       <ButtonBox>
-        <Button unlined>{$colorStack.length > 0 && $colorStack.length}</Button>
-        <BackButton onClick={prevColor} />
+        {hasPreviousColors && <Button unlined>{$colorStack.length}</Button>}
+        {hasPreviousColors && <BackButton onClick={prevColor} />}
         <PlayPauseButton onClick={togglePlaying} $isPlaying={$isPlaying} />
         <FlipButton onClick={flipColors} />
         <NextButton onClick={nextColor} />

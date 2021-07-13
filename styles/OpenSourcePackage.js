@@ -1,18 +1,19 @@
 import styled from "@emotion/styled"
 import { mq, t, mix, fore, back } from "utils/style"
+import Link from "components/Link"
 
 const packageWidth = mq({
   maxWidth: {
     T0: "calc(100% - 6rem)",
     S1: "calc(50% - 4rem)",
-    M2: "calc(33.333% - 3.5rem)",
+    S3: "calc(33.333% - 3.5rem)",
+    M2: "calc(33.333% - 6rem)",
   },
 })
 
-console.log("WIDTHS", packageWidth)
-
-export const OpenSourcePackage = styled.a`
+export const OpenSourcePackage = styled(Link)`
   display: flex;
+  text-decoration: none;
   flex-direction: column;
   padding: 1rem;
   border-bottom: 1px solid ${mix(1 / 2)};
@@ -66,15 +67,4 @@ export const PackageName = styled.strong`
 `
 export const PackageSummary = styled.span`
   font-weight: 400;
-`
-export const Installation = styled.pre`
-  font-family: "Fira Code", monospace;
-  font-size: 0.8rem;
-  background-color: ${mix(2 / 3)};
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  padding: 0.5rem 1rem;
-  color: ${fore};
-  overflow: auto;
-  ${t(["background", "color"])}
 `
