@@ -3,7 +3,6 @@ import BodypaintLogo from "logos/bodypaint.svg"
 import BrainwaveLogo from "logos/brainwave.svg"
 import BreakpointsLogo from "logos/breakpoints.svg"
 import EntrustLogo from "logos/entrust.svg"
-import FUtilityLogo from "logos/f-utility.svg"
 import FlexecaLogo from "logos/flexeca.svg"
 import GitpartyLogo from "logos/gitparty.svg"
 import HalfBakedLogo from "logos/half-baked.svg"
@@ -14,6 +13,10 @@ import PhantomscriptLogo from "logos/phantomscript.svg"
 import SnangLogo from "logos/snang.svg"
 import TorporLogo from "logos/torpor.svg"
 import XtraceLogo from "logos/xtrace.svg"
+import WahlLogo from "logos/wahl.svg"
+import UnusualLogo from "logos/unusual.svg"
+import RipjamLogo from "logos/ripjam.svg"
+import EasyStreetLogo from "logos/easy-street.svg"
 
 const logoNameSummaryHost = (logo, name, summary, org, host = true) => ({
   logo,
@@ -44,7 +47,6 @@ export const entrust = lunch(
 )
 export const blem = lunch(BlemLogo, "blem", "dead-simple BEM notation library")
 export const snang = lunch(SnangLogo, "snang", "transform stdin with tacit JS")
-export const futility = lunch(FUtilityLogo, "f-utility", "functional utilities")
 export const bodypaint = lunch(
   BodypaintLogo,
   "bodypaint",
@@ -78,6 +80,15 @@ export const brainwave = lunch(
   "brainwave",
   "orchestrated frontmatter"
 )
+export const easystreet = lunch(EasyStreetLogo, "easy-street", "either | or")
+
+export const unusual = lunch(UnusualLogo, "unusual", "consistent randomness")
+export const wahl = lunch(WahlLogo, "wahl", "dead simple, maybe?")
+export const ripjam = lunch(
+  RipjamLogo,
+  "ripjam",
+  "tear it apart to bring it together"
+)
 
 export const packages = {
   katsuCurry,
@@ -85,7 +96,6 @@ export const packages = {
   entrust,
   blem,
   snang,
-  futility,
   bodypaint,
   breakpoints,
   torpor,
@@ -94,6 +104,10 @@ export const packages = {
   phantomscript,
   gitparty,
   brainwave,
+  unusual,
+  ripjam,
+  easystreet,
+  wahl,
 }
 
 export const packageList = Object.values(packages)

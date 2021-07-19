@@ -71,7 +71,6 @@ const graphWidth = mq({
   },
 })
 export const PkgParagraph = styled.p`
-  text-indent: 1.5rem;
   margin: 1rem auto;
 `
 export const PkgHeading = styled.h2``
