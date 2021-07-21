@@ -94,13 +94,35 @@ export const PkgElsewhere = styled.div`
   justify-content: space-between;
   svg {
     margin-left: 0.5rem !important;
+    max-width: 1rem;
   }
   ${Link} {
     margin: 2rem 0.5rem 1rem 0.5rem !important;
+    display: flex;
+    align-items: baseline;
   }
 `
 
 export const PkgExamples = styled.div`
   display: flex;
   flex-wrap: wrap;
+`
+
+export const PkgFlags = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`
+
+export const PkgFlag = styled.li`
+  list-style: none;
+  margin: 0;
+`
+
+export const PkgFlagTitle = styled.strong`
+  font-weight: bold;
+`
+
+export const PkgFlagDetail = styled.p`
+  text-indent: 1rem;
 `

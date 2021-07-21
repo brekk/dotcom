@@ -18,14 +18,17 @@ import UnusualLogo from "logos/unusual.svg"
 import RipjamLogo from "logos/ripjam.svg"
 import EasyStreetLogo from "logos/easy-street.svg"
 
-const logoNameSummaryHost = (logo, name, summary, org, host = true) => ({
-  logo,
-  name,
-  org,
-  summary,
-  source: host ? "Github" : "Gitlab",
-  host: host ? `//github.com/${org}/${name}` : `//gitlab.com/${org}/${name}`,
-})
+const logoNameSummaryHost = (logo, name, summary, org, host = true) => {
+  const pkg = org || "brekk"
+  return {
+    logo,
+    name,
+    org,
+    summary,
+    source: host ? "Github" : "Gitlab",
+    host: org ? `//github.com/${pkg}/${name}` : `//gitlab.com/${pkg}/${name}`,
+  }
+}
 
 const lunch = logoNameSummaryHost
 

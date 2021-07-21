@@ -1,7 +1,8 @@
 import { css, Global } from "@emotion/react"
 import { of, curry, pipe, ap, propOr, pathOr } from "ramda"
+import styled from "@emotion/styled"
 import mixColor from "mix-color"
-import { renderBreakpoints } from "@open-sorcerers/breakpoints"
+import { renderCustomComponent } from "@open-sorcerers/breakpoints"
 import { makePainter, asRem, HORIZONTAL_BREAKPOINTS } from "bodypaint"
 
 export const COLORS = Object.freeze({
@@ -61,7 +62,33 @@ export const Style = ({ theme }) => <Global styles={globalStyler(theme)} />
 
 // and now: we shout about breakpoints
 export const POINTS = asRem(BASE_FONT_SIZE, HORIZONTAL_BREAKPOINTS)
-export const Breakpoints = renderBreakpoints(POINTS)
+const Breakpoint = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 1rem;
+  z-index: 100;
+  top: 0;
+  left: ${propOr(0, "left")};
+  border-left: 1px dashed ${fore};
+  opacity: ${propOr(0.1, "opacity")};
+  cursor: crosshair;
+  &:hover {
+    opacity: 1;
+  }
+  &::before {
+    position: absolute;
+    background-color: ${fore};
+    color: ${back};
+    content: "${propOr("?", "label")}";
+    transform: rotate(-90deg);
+    padding: 0.25rem 3rem 0.25rem 1rem;
+    width: 10rem;
+    margin-left: -6.75rem;
+    margin-top: 2rem;
+  }
+`
+
+export const Breakpoints = renderCustomComponent("left", Breakpoint, POINTS)
 
 export const mq = makePainter({
   useMin: true,

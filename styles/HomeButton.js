@@ -9,7 +9,12 @@ export const HomeButton = styled.div`
   ${Link} {
     margin-right: 0.25rem;
   }
+  svg {
+    width: 1.5rem;
+    max-width: 1.5rem;
+  }
   path {
+    width: 2.5rem;
     max-width: 2.5rem;
   }
 `

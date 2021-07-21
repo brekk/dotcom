@@ -14,6 +14,10 @@ import {
   PkgExamples,
   PkgFeature,
   PkgFeatures,
+  PkgFlags,
+  PkgFlag,
+  PkgFlagTitle,
+  PkgFlagDetail,
   PkgHeader,
   PkgHeading,
   PkgInstallation,
@@ -38,6 +42,23 @@ const PackageSection = ({ title, children, ...props }) => (
     {title && <h2>{title}</h2>}
     {children}
   </PkgSection>
+)
+
+const PackageFlags = ({ flags }) => (
+  <PackageSection title="Flags">
+    <PkgFlags>
+      {flags.map(([[longFlag, shortFlag], explanation]) => (
+        <PkgFlag key={longFlag}>
+          <PkgFlagTitle>
+            <code>{longFlag}</code>
+            {`, `}
+            <code>{shortFlag}</code>
+          </PkgFlagTitle>
+          <PkgFlagDetail>{explanation}</PkgFlagDetail>
+        </PkgFlag>
+      ))}
+    </PkgFlags>
+  </PackageSection>
 )
 
 const PackageFeatures = ({ features }) => (
@@ -77,18 +98,21 @@ const PackageFeatures = ({ features }) => (
   </PackageSection>
 )
 
-const SeeElsewhere = ({ name, org, host, source }) => (
-  <PkgElsewhere>
-    <Link href={`//npmjs.org/package/${org}/${name}`}>
-      See on NPM
-      <Icon icon="external-link-square-alt" />
-    </Link>
-    <Link href={host}>
-      See on {source}
-      <Icon icon="external-link-square-alt" />
-    </Link>
-  </PkgElsewhere>
-)
+const SeeElsewhere = ({ name, org, host, source }) => {
+  const pkg = org ? org + "/" + name : name
+  return (
+    <PkgElsewhere>
+      <Link href={`//npmjs.org/package/${pkg}`}>
+        See on NPM
+        <Icon icon="external-link-square-alt" />
+      </Link>
+      <Link href={host}>
+        See on {source}
+        <Icon icon="external-link-square-alt" />
+      </Link>
+    </PkgElsewhere>
+  )
+}
 
 const Package = ({
   name,
@@ -99,6 +123,7 @@ const Package = ({
   source,
   paragraphs,
   features,
+  flags,
   summary,
 }) => {
   return (
@@ -123,7 +148,9 @@ const Package = ({
             )(paragraphs)}
           </PkgDetails>
         </PackageSection>
-        <PackageFeatures features={features} />
+
+        {flags && <PackageFlags flags={flags} />}
+        {features && <PackageFeatures features={features} />}
         <PackageExamples examples={examples} />
       </PkgMain>
     </Pkg>
