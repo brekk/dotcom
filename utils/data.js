@@ -29,14 +29,12 @@ export function BrekkStateProvider({ children }) {
   // previous colors
   const [$colorStack, __setColorStack] = useState([$themeName])
   const setColor = c => {
-    console.log("setting color to ", c)
     __setThemeName(c)
     __setPalette(grabColor(c))
   }
   const pushColor = c => {
     const stack = length($colorStack) <= 19 ? $colorStack : $colorStack.slice(1)
     setColor(c)
-    console.log("adding color to stack", c)
     __setColorStack(stack.concat(c))
   }
   const prevColor = () => {
@@ -66,17 +64,30 @@ export function BrekkStateProvider({ children }) {
     togglePlaying,
     theme: dynamicTheme,
   }
-  const nextOrFlip = () =>
-    unusual.integer({ min: 0, max: 3 }) === 3 ? flipColors() : nextColor()
   useEffect(() => {
+    const nextOrFlip = () =>
+      unusual.integer({ min: 0, max: 3 }) === 3 ? flipColors() : nextColor()
     let interval
-    if ($isPlaying) {
-      interval = setInterval(nextOrFlip, 15e3)
+    const startPlaying = () => {
+      if ($isPlaying && document.visibilityState !== "hidden") {
+        clearInterval(interval)
+        interval = setInterval(nextOrFlip, 15e3)
+      }
     }
+    startPlaying()
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+        clearInterval(interval)
+        interval = -1
+      } else if (interval > -1) {
+        startPlaying()
+      }
+    })
     return () => {
       clearTimeout(interval)
+      interval = -1
     }
-  }, [$isPlaying, nextColor])
+  }, [$isPlaying, nextColor, flipColors])
 
   return <BrekkState.Provider value={state}>{children}</BrekkState.Provider>
 }

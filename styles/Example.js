@@ -13,7 +13,8 @@ export const ExampleTitle = styled.h4`
   display: flex;
   flex-direction: row;
   font-weight: bold;
-  margin: 2rem 0 0;
+  text-align: left;
+  margin: 1rem 0 0;
   padding: 0;
   ${Link} {
     margin-right: 0.5rem;

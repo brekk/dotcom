@@ -5,12 +5,13 @@ import {
   ExampleCode as XCode,
 } from "styles/Example"
 import Link from "components/Link"
+import { slug } from "utils/text"
 
 export const Example = ({ title, code }) => {
-  const hashlink = title.toLowerCase().replace(/\s/g, "-")
+  const hashlink = slug(title)
   return (
-    <X>
-      <XTitle title={hashlink}>
+    <X id={hashlink}>
+      <XTitle>
         <Link href={`#${hashlink}`}># </Link>
         {title}
       </XTitle>

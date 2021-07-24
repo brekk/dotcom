@@ -84,6 +84,10 @@ export const PkgFeature = styled.li`
   display: list-style;
   list-style: disc;
 `
+export const PkgFeatures2 = styled.ul`
+  padding: 0.5rem 0 0.5rem 1rem;
+`
+export const PkgFeature2 = styled.li``
 export const PkgCode = styled.div``
 export const PkgCodeHeader = styled.h3``
 export const PkgCodeBlock = styled.pre``

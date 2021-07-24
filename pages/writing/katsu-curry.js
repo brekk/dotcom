@@ -13,13 +13,9 @@ const features = {
     "Partial application with any combination of arguments",
     [code`$`, code`PLACEHOLDER`],
   ],
-  four: [
-    "Utilities",
-    ["for remapping parameters", [code`remap`, code`remapArray`]],
-    ["for function composition", [code`pipe`, code`compose`]],
-    ["for function constants", [code`K`]],
-    ["for functional identity", [code`I`]],
-  ],
+  utility1: ["Remap parameters", [code`remap`, code`remapArray`]],
+  utility2: ["Function composition", [code`pipe`, code`compose`]],
+  utility3: ["Utility functions", [code`K`, code`I`]],
   five: [
     "An outrageously useful debug-mode™",
     [

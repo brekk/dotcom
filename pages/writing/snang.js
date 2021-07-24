@@ -1,7 +1,7 @@
 import Pkg from "components/Package"
 import Link from "components/Link"
 import { snang } from "data/packages"
-import { code } from "utils/text"
+import { shortFlag, longFlag, code } from "utils/text"
 import Example from "components/Example"
 
 const paragraphs = {
@@ -29,8 +29,6 @@ const paragraphs = {
     </ol>
   ),
 }
-const longFlag = x => `--${x}`
-const shortFlag = x => `-${x}`
 const flags = [
   [
     [longFlag("debug"), shortFlag("d")],

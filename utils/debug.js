@@ -38,3 +38,13 @@ export const query = () => {
   log.detail("query", value)
   return value
 }
+
+export const j2 = x => JSON.stringify(x, null, 2)
+
+export const Debug = props => (
+  <pre>
+    <code>{j2(props)}</code>
+  </pre>
+)
+
+export const isArray = Array.isArray
