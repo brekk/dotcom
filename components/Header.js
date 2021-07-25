@@ -53,7 +53,7 @@ function Header() {
         </H2>
         <IconLink
           icon={["fas", "file"]}
-          href="https://brekk.is/static/resume.pdf"
+          href="/resume.pdf"
           className={bem("icon-link")}
         >
           Resume / CV

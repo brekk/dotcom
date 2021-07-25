@@ -28,7 +28,7 @@ export function BrekkStateProvider({ children }) {
   // - $ denotes state vars
   // - __ denotes state functions
   // color name
-  const [$themeName, __setThemeName] = useState("raccoon")
+  const [$themeName, __setThemeName] = useState("bee")
   // color values
   const [$palette, __setPalette] = useState(colors[$themeName])
   const dynamicTheme = { ...theme, flipped: $isFlipped, colors: $palette }

@@ -1,7 +1,12 @@
 const path = require("path")
-const withMDX = require("@next/mdx")
+// const withPWA = require("next-pwa")
+// const runtimeCaching = require("next-pwa/cache")
 
 module.exports = {
+  // pwa: {
+  //   dest: "public",
+  //   runtimeCaching,
+  // },
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
@@ -23,15 +28,6 @@ module.exports = {
               ],
             },
           },
-        },
-      ],
-    })
-    config.module.rules.push({
-      test: /\.mdx/,
-      use: [
-        options.defaultLoaders.babel,
-        {
-          loader: "@mdx-js/loader",
         },
       ],
     })

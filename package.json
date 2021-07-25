@@ -37,6 +37,7 @@
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",
     "jest": "^27.0.6",
+    "next-pwa": "^5.2.24",
     "nps": "^5.10.0",
     "snang": "^0.2.7"
   }
