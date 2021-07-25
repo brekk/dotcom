@@ -8,6 +8,7 @@ export const OpenSourcePackages = styled.div`
   margin-top: 2rem;
   border-top: 1px solid ${mix(1 / 2)};
   margin: 0;
+  margin-bottom: 3rem;
   ${t("border")};
 `
 
@@ -16,6 +17,7 @@ export const Packages = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 `
 
 export const Title = styled.h3`

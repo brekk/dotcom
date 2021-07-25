@@ -18,13 +18,23 @@ import {
   ButtonBox,
 } from "styles/ControlPanel"
 
-const BackButton = props => <IconButton {...props} icon="backward" />
-const NextButton = props => <IconButton {...props} icon="forward" />
+const BackButton = props => (
+  <IconButton aria-label="Previous Color Palette" {...props} icon="backward" />
+)
+const NextButton = props => (
+  <IconButton aria-label="Next Color Palette" {...props} icon="forward" />
+)
 const FlipButton = props => (
-  <IconButton {...props} icon="sync" animation="spin" />
+  <IconButton
+    {...props}
+    icon="sync"
+    animation="spin"
+    aria-label="Flip Color Palette"
+  />
 )
 const PlayPauseButton = ({ onClick, $isPlaying }) => (
   <ConditionalIconButton
+    aria-label="Toggle Color Palette Auto-change"
     onClick={onClick}
     icon="stop"
     conditions={[
@@ -35,7 +45,7 @@ const PlayPauseButton = ({ onClick, $isPlaying }) => (
   />
 )
 
-function ControlPanel({ showMeta = false }) {
+function ControlPanel({ showMeta = false, ...props }) {
   const {
     $isPlaying,
     $isFlipped,
@@ -54,7 +64,7 @@ function ControlPanel({ showMeta = false }) {
   }, [])
   const hasPreviousColors = $colorStack.length > 1
   return (
-    <CP>
+    <CP {...props}>
       <ButtonBox>
         {hasPreviousColors && <Button unlined>{$colorStack.length}</Button>}
         {hasPreviousColors && <BackButton onClick={prevColor} />}

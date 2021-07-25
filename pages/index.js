@@ -9,7 +9,7 @@ import Footer from "components/Footer"
 export default function Home(props) {
   const theme = useTheme()
   return (
-    <div>
+    <>
       <Head>
         <title>brekk.is</title>
         <meta name="description" content="The Portfolio of Brekk Bockrath" />
@@ -19,6 +19,6 @@ export default function Home(props) {
       <Header />
       <OpenSourcePackages />
       <Footer />
-    </div>
+    </>
   )
 }

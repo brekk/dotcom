@@ -70,7 +70,7 @@ const graphWidth = mq({
     M2: "40%",
   },
 })
-export const PkgParagraph = styled.p`
+export const PkgParagraph = styled.div`
   margin: 1rem auto;
 `
 export const PkgHeading = styled.h2``

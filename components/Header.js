@@ -7,6 +7,9 @@ import { H2, H1, Header as H, HeaderColumn } from "styles/Header"
 import { LogoBox } from "styles/Logo"
 import Logo from "logos/brekk-is.svg"
 
+import blem from "blem"
+const bem = blem("Header")
+
 const linkList = [
   { text: "Gitlab", icon: ["fab", "gitlab"], href: "https://gitlab.com/brekk" },
   { text: "Github", icon: ["fab", "github"], href: "https://github.com/brekk" },
@@ -35,23 +38,27 @@ const linkList = [
 function Header() {
   const theme = useTheme()
   return (
-    <H>
-      <HeaderColumn>
-        <LogoBox theme={theme}>
-          <Logo />
+    <H className={bem()}>
+      <HeaderColumn className={bem("column", "one")}>
+        <LogoBox theme={theme} className={bem("logo-container")}>
+          <Logo className={bem("logo")} />
         </LogoBox>
-        <ControlPanel />
+        <ControlPanel className={bem("control-panel")} />
       </HeaderColumn>
-      <HeaderColumn>
-        <H1>Brekk Bockrath</H1>
-        <H2>JavaScript Engineer / Web Developer</H2>
+      <HeaderColumn className={bem("column", "two")}>
+        <H1 className={bem("like-breakfast")}>Brekk Bockrath</H1>
+        <H2 className={bem("like-java-but-not")}>
+          {" "}
+          JavaScript Engineer / Web Developer
+        </H2>
         <IconLink
           icon={["fas", "file"]}
           href="https://brekk.is/static/resume.pdf"
+          className={bem("icon-link")}
         >
           Resume / CV
         </IconLink>
-        <IconLinkList list={linkList} />
+        <IconLinkList list={linkList} className={bem("icon-link-list")} />
       </HeaderColumn>
     </H>
   )

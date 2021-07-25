@@ -8,7 +8,7 @@ const whenIndividual = (a, b) => ifElse(isIndividual, always(a), always(b))
 export const Installation = styled.pre`
   font-family: "Fira Code", monospace;
   font-size: 0.8rem;
-  background-color: ${mix(0.7)};
+  background-color: ${mix(9 / 10)};
   padding: ${whenIndividual("1rem", "0.5rem 1rem")};
   color: ${fore};
   overflow: auto;

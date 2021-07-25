@@ -1,5 +1,11 @@
 import { nth, last, prop, pipe, __ as $, length } from "ramda"
-import { useEffect, createContext, useContext, useState } from "react"
+import {
+  useCallback,
+  useEffect,
+  createContext,
+  useContext,
+  useState,
+} from "react"
 import { ThemeProvider } from "@emotion/react"
 
 import { Style, theme, globalStyler } from "utils/style"
@@ -16,7 +22,7 @@ export function BrekkStateProvider({ children }) {
   const toggleYarnOrNPM = () => __setPackageManager(!$yarnOrNPM)
   // flip state
   const [$isFlipped, __setFlipped] = useState(false)
-  const flipColors = () => __setFlipped(!$isFlipped)
+  const flipColors = useCallback(() => __setFlipped(!$isFlipped), [$isFlipped])
   const grabColor = prop($, colors)
   // useState conventions:
   // - $ denotes state vars

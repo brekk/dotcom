@@ -6,17 +6,21 @@ import {
 } from "styles/Example"
 import Link from "components/Link"
 import { slug } from "utils/text"
+import blem from "blem"
+const bem = blem("Example")
 
 export const Example = ({ title, code }) => {
   const hashlink = slug(title)
   return (
-    <X id={hashlink}>
-      <XTitle>
-        <Link href={`#${hashlink}`}># </Link>
+    <X id={hashlink} className={bem()}>
+      <XTitle className={bem("title")}>
+        <Link href={`#${hashlink}`} className={bem("link")}>
+          #{" "}
+        </Link>
         {title}
       </XTitle>
-      <XPre>
-        <XCode>{code}</XCode>
+      <XPre className={bem("pre")}>
+        <XCode className={bem("code")}>{code}</XCode>
       </XPre>
     </X>
   )

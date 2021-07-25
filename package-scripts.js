@@ -3,6 +3,7 @@ module.exports = {
     dev: "next dev",
     build: "next build",
     start: "next start",
+    restart: "nps build start",
     lint: "next lint",
     generate: {
       colors:

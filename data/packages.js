@@ -35,21 +35,13 @@ const lunch = logoNameSummaryHost
 export const katsuCurry = lunch(
   KatsuCurryLogo,
   "katsu-curry",
-  "curry for your functions"
+  "curry functions simply"
 )
-export const xtrace = lunch(
-  XtraceLogo,
-  "xtrace",
-  "side-effect / logging library"
-)
+export const xtrace = lunch(XtraceLogo, "xtrace", "side-effectful")
 
-export const entrust = lunch(
-  EntrustLogo,
-  "entrust",
-  "tacit programming utility library"
-)
-export const blem = lunch(BlemLogo, "blem", "dead-simple BEM notation library")
-export const snang = lunch(SnangLogo, "snang", "transform stdin with tacit JS")
+export const entrust = lunch(EntrustLogo, "entrust", "tacit delegatee-first")
+export const blem = lunch(BlemLogo, "blem", "BEM notation library")
+export const snang = lunch(SnangLogo, "snang", "transform yer streams")
 export const bodypaint = lunch(
   BodypaintLogo,
   "bodypaint",
@@ -58,20 +50,12 @@ export const bodypaint = lunch(
 export const breakpoints = lunch(
   BreakpointsLogo,
   "breakpoints",
-  "manage complex breakpoints",
+  "responsive, responsibly",
   "open-sorcerers"
 )
 export const torpor = lunch(TorporLogo, "torpor", "futuristic fs")
-export const handrail = lunch(
-  HandrailLogo,
-  "handrail",
-  "add safety with Eithers"
-)
-export const ljs2 = lunch(
-  Ljs2Logo,
-  "ljs2",
-  "literate programming library for js"
-)
+export const handrail = lunch(HandrailLogo, "handrail", "composable safety")
+export const ljs2 = lunch(Ljs2Logo, "ljs2", "literate programming")
 export const phantomscript = lunch(
   PhantomscriptLogo,
   "phantomscript",
@@ -83,15 +67,11 @@ export const brainwave = lunch(
   "brainwave",
   "orchestrated frontmatter"
 )
-export const easystreet = lunch(EasyStreetLogo, "easy-street", "either | or")
+export const easystreet = lunch(EasyStreetLogo, "easy-street", "either / or")
 
 export const unusual = lunch(UnusualLogo, "unusual", "consistent randomness")
 export const wahl = lunch(WahlLogo, "wahl", "dead simple, maybe?")
-export const ripjam = lunch(
-  RipjamLogo,
-  "ripjam",
-  "tear it apart to bring it together"
-)
+export const ripjam = lunch(RipjamLogo, "ripjam", "unified testing")
 
 export const packages = {
   katsuCurry,

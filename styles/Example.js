@@ -9,7 +9,7 @@ export const Example = styled.div`
   width: 100%;
 `
 
-export const ExampleTitle = styled.h4`
+export const ExampleTitle = styled.h3`
   display: flex;
   flex-direction: row;
   font-weight: bold;

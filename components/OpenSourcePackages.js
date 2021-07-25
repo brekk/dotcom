@@ -8,17 +8,23 @@ import {
 import PreferPackageManager from "components/PreferPackageManager"
 import OpenSourcePackage from "components/OpenSourcePackage"
 import { packageList } from "data/packages"
+import blem from "blem"
+const bem = blem("OpenSourcePackages")
 
 function OpenSourcePackages() {
   return (
-    <OSP>
-      <Header>
-        <Title>Open Source Modules</Title>
+    <OSP className={bem()}>
+      <Header className={bem("header")}>
+        <Title className={bem("title")}>Open Source Modules</Title>
       </Header>
-      <PreferPackageManager />
-      <Packages>
+      <PreferPackageManager className={bem("package-manager")} />
+      <Packages className={bem("list")}>
         {packageList.map(pkg => (
-          <OpenSourcePackage {...pkg} key={pkg.name} />
+          <OpenSourcePackage
+            {...pkg}
+            key={pkg.name}
+            className={bem("package")}
+          />
         ))}
       </Packages>
     </OSP>

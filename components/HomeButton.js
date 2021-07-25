@@ -5,7 +5,7 @@ import HB from "styles/HomeButton"
 function HomeButton() {
   return (
     <HB>
-      <Link href="/">
+      <Link href="/" aria-label="home">
         <Icon icon="home" />
       </Link>
       {"↫"}

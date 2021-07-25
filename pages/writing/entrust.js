@@ -31,10 +31,11 @@ e0('toUpperCase')('abcde') === 'ABCDE'
   two: (
     <>
       {code`entrust`} is built using{" "}
-      <Link href="/writing/katsu-curry">katsu-curry</Link>'s {code`curry`}{" "}
+      <Link href="/writing/katsu-curry">katsu-curry</Link>&apos;s {code`curry`}{" "}
       implementation. However, if you would like to use a different curry
       implementation, this is easily accomplished using the {code`custom`} API.
-      This technique is used to generate {code`entrust`}'s "debug-mode" export.
+      This technique is used to generate {code`entrust`}&apos;s
+      &ldquo;debug-mode&rdquo; export.
     </>
   ),
 }

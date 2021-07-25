@@ -2,6 +2,10 @@ const path = require("path")
 const withMDX = require("@next/mdx")
 
 module.exports = {
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
   reactStrictMode: true,
   webpack(config, options) {
     config.module.rules.push({

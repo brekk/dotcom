@@ -1,3 +1,4 @@
+import Head from "next/head"
 import {
   both,
   curry,
@@ -155,12 +156,16 @@ const Package = ({
 }) => {
   return (
     <Pkg className={bem()}>
+      <Head>
+        <title>Open-Source Package: {name}</title>
+        <meta name="description" content={summary} />
+      </Head>
       <HomeButton />
       <PkgHeader className={bem("header")}>
         <ControlPanel />
         <SeeElsewhere name={name} org={org} host={host} source={source} />
         <PkgLogo className={bem("logo-container")}>
-          <Logo className={bem("logo")} />
+          <Logo className={bem("logo", name)} />
         </PkgLogo>
         <PkgInstallation
           name={name}
