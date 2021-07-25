@@ -6,7 +6,7 @@ import { ControlPanel } from "styles/ControlPanel"
 
 const packageWidth = mq({
   width: {
-    T0: "calc(100% - 6rem)",
+    T0: "calc(100% - 10rem)",
     S1: "calc(50% - 4rem)",
     S3: "calc(33.333% - 3.5rem)",
     M2: "calc(33.333% - 6rem)",
@@ -17,13 +17,6 @@ const packageBorders = props =>
     borderBottom: {
       T0: `1px solid ${mix(1 / 2)(props)}`,
       S3: `1px solid transparent`,
-    },
-  })
-const packageBordersFinal = props =>
-  mq({
-    borderBottom: {
-      T0: `1px solid ${mix(1 / 2)(props)}`,
-      S1: `1px solid transparent`,
     },
   })
 
@@ -97,7 +90,7 @@ export const OpenSourcePackage = styled(Link)`
     ${packageBorders}
   }
   &:last-of-type {
-    ${packageBordersFinal}
+    border-bottom: 1px solid transparent;
   }
 `
 export const LogoContainer = styled.div`

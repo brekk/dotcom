@@ -17,7 +17,12 @@ function OpenSourcePackage({ logo: Logo, name, summary, org }) {
   return (
     <OSP href={`/writing/${name}`} className={bem("", name)} name={name}>
       <LogoContainer className={bem("logo-container", name)} name={name}>
-        <Logo className={bem("logo", name)} name={name} />
+        <Logo
+          className={bem("logo", name)}
+          name={name}
+          aria-label={name}
+          title={name}
+        />
       </LogoContainer>
       <PackageDetails className={bem("details")}>
         <PackageSummary className={bem("summary")}>{summary}</PackageSummary>

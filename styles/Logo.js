@@ -8,17 +8,20 @@ const margin = mq({
   },
 })
 const minWidth = mq({
-  minWidth: {
-    T0: "16rem",
+  width: {
+    T0: "20rem",
     S0: "24rem",
+    M1: "36rem",
   },
 })
 
 export const LogoBox = styled.div`
   fill: ${fore};
   ${margin};
-  ${t("fill")}
+  ${t(["fill", "width"])}
+  ${minWidth}
   svg {
-    ${minWidth}
+    width: 100%;
+    ${t("width")}
   }
 `

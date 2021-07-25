@@ -19,22 +19,34 @@ import {
 } from "styles/ControlPanel"
 
 const BackButton = props => (
-  <IconButton aria-label="Previous Color Palette" {...props} icon="backward" />
+  <IconButton
+    title="Previous Color Palette"
+    aria-label="Previous Color Palette"
+    {...props}
+    icon="backward"
+  />
 )
 const NextButton = props => (
-  <IconButton aria-label="Next Color Palette" {...props} icon="forward" />
+  <IconButton
+    title="Next Color Palette"
+    aria-label="Next Color Palette"
+    {...props}
+    icon="forward"
+  />
 )
 const FlipButton = props => (
   <IconButton
     {...props}
     icon="sync"
     animation="spin"
+    title="Flip Color Palette"
     aria-label="Flip Color Palette"
   />
 )
 const PlayPauseButton = ({ onClick, $isPlaying }) => (
   <ConditionalIconButton
     aria-label="Toggle Color Palette Auto-change"
+    title="Toggle Color Palette Auto-change"
     onClick={onClick}
     icon="stop"
     conditions={[
