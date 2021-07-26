@@ -57,7 +57,7 @@ const PackageExamples = ({ examples }) => (
 
 const PackageSection = ({ title, children, ...props }) => (
   <PkgSection title={title} {...props} className={bem("section", slug(title))}>
-    {title && <h2 className={bem("section-title")}>{title}</h2>}
+    {title && <PkgHeading className={bem("section-title")}>{title}</PkgHeading>}
     {children}
   </PkgSection>
 )

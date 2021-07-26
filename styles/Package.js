@@ -42,6 +42,7 @@ export const PkgLogo = styled.div`
 export const PkgTitle = styled.h1`
   margin: 0;
   padding: 0;
+  font-family: "News Cycle", sans-serif;
 `
 export const PkgInstallation = Installation
 
@@ -73,7 +74,10 @@ const graphWidth = mq({
 export const PkgParagraph = styled.div`
   margin: 1rem auto;
 `
-export const PkgHeading = styled.h2``
+export const PkgHeading = styled.h2`
+  font-family: "News Cycle", sans-serif;
+  text-transform: uppercase;
+`
 export const PkgFeatures = styled.ul`
   padding: 0;
   padding-left: 1.5rem;

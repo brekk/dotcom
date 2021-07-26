@@ -49,7 +49,7 @@ export const globalStyler = givenTheme => css`
   body {
     font-size: ${BASE_FONT_SIZE}px;
     scroll-behavior: smooth;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: ${getBackground(givenTheme)};
     color: ${getForeground(givenTheme)};
     margin: 0;

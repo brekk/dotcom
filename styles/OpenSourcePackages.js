@@ -22,6 +22,7 @@ export const Packages = styled.div`
 
 export const Title = styled.h3`
   text-transform: uppercase;
+  font-family: "News Cycle", sans-serif;
 `
 
 export const Header = styled.div`
