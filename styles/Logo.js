@@ -9,7 +9,7 @@ const margin = mq({
 })
 const minWidth = mq({
   width: {
-    T0: "20rem",
+    T0: "26rem",
     S0: "24rem",
     M1: "36rem",
   },

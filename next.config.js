@@ -1,12 +1,9 @@
 const path = require("path")
+const withImages = require("next-images")
 // const withPWA = require("next-pwa")
 // const runtimeCaching = require("next-pwa/cache")
 
 module.exports = {
-  // pwa: {
-  //   dest: "public",
-  //   runtimeCaching,
-  // },
   i18n: {
     locales: ["en"],
     defaultLocale: "en",

@@ -1,28 +1,36 @@
 import styled from "@emotion/styled"
 import { t, back, fore } from "utils/style"
+import Link from "components/Link"
 
-export const Link = styled.a`
+export const IconLink = styled(Link)`
   line-height: 1.5em;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem;
   font-size: 1em;
   color: ${fore};
   text-decoration: none;
   ${t("color")}
+
   svg {
-    min-width: 1rem;
-    max-width: 1em;
-    max-height: 1em;
+    width: 1rem;
+    height: 1rem;
     margin-right: 0.5rem;
-    padding-bottom: 0.25rem;
     path {
       fill: ${fore};
-
       ${t("fill")}
     }
   }
+  &:hover {
+    background-color: ${fore};
+    color: ${back};
+    svg {
+      path {
+        fill: ${back};
+      }
+    }
+  }
 `
-export default Link
+export default IconLink
