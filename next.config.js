@@ -1,9 +1,10 @@
 const path = require("path")
-const withImages = require("next-images")
+// const withImages = require("next-images")
 // const withPWA = require("next-pwa")
 // const runtimeCaching = require("next-pwa/cache")
 
 module.exports = {
+  // fileExtensions: ["png"],
   i18n: {
     locales: ["en"],
     defaultLocale: "en",

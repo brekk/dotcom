@@ -157,7 +157,9 @@ const Package = ({
   return (
     <Pkg className={bem()}>
       <Head>
-        <title>Open-Source Package: {name}</title>
+        <title>
+          {name} - {summary} - an Open-Source Project
+        </title>
         <meta name="description" content={summary} />
       </Head>
       <HomeButton />

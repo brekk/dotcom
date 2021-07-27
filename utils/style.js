@@ -77,13 +77,13 @@ const Breakpoint = styled.div`
   }
   &::before {
     position: absolute;
-    background-color: ${fore};
-    color: ${back};
+    background-color: ${mix(1 / 2)};
+    color: ${fore};
     content: "${propOr("?", "label")}";
     transform: rotate(-90deg);
     padding: 0.25rem 3rem 0.25rem 1rem;
     width: 10rem;
-    margin-left: -6.75rem;
+    margin-left: calc(-6.75rem + 2px);
     margin-top: 2rem;
   }
 `

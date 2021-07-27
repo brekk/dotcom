@@ -3,6 +3,7 @@ import BodypaintLogo from "logos/bodypaint.svg"
 import BrainwaveLogo from "logos/brainwave.svg"
 import BreakpointsLogo from "logos/breakpoints.svg"
 import EntrustLogo from "logos/entrust.svg"
+import EnvtraceLogo from "logos/envtrace.svg"
 import FlexecaLogo from "logos/flexeca.svg"
 import GitpartyLogo from "logos/gitparty.svg"
 import HalfBakedLogo from "logos/half-baked.svg"
@@ -38,6 +39,7 @@ export const katsuCurry = lunch(
   "curry functions simply"
 )
 export const xtrace = lunch(XtraceLogo, "xtrace", "side-effectful")
+export const envtrace = lunch(EnvtraceLogo, "envtrace", "conditional logging")
 
 export const entrust = lunch(EntrustLogo, "entrust", "tacit delegatee-first")
 export const blem = lunch(BlemLogo, "blem", "BEM notation library")
@@ -76,6 +78,7 @@ export const ripjam = lunch(RipjamLogo, "ripjam", "unified testing")
 export const packages = {
   katsuCurry,
   xtrace,
+  envtrace,
   entrust,
   blem,
   snang,

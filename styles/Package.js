@@ -108,6 +108,7 @@ export const PkgElsewhere = styled.div`
     margin: 2rem 0.5rem 1rem 0.5rem !important;
     display: flex;
     align-items: baseline;
+    width: 8rem;
   }
 `
 
