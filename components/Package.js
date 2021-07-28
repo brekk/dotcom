@@ -142,6 +142,13 @@ const PackageParagraphs = ({ paragraphs }) => (
   </PackageSection>
 )
 
+const AdditionalDetails = ({ title, paragraphs, examples }) => (
+  <PackageSection title={title}>
+    {paragraphs && <PackageParagraphs paragraphs={paragraphs} />}
+    {examples && <PackageExamples examples={examples} />}
+  </PackageSection>
+)
+
 const Package = ({
   name,
   org,
@@ -149,9 +156,10 @@ const Package = ({
   examples = [],
   host,
   source,
-  paragraphs,
-  flags,
-  features,
+  paragraphs = false,
+  flags = false,
+  features = false,
+  details = [],
   summary,
 }) => {
   return (
@@ -183,7 +191,15 @@ const Package = ({
         {paragraphs && <PackageParagraphs paragraphs={paragraphs} />}
         {features && <PackageFeatures features={features} />}
         {flags && <PackageFlags flags={flags} />}
-        <PackageExamples examples={examples} />
+        {examples && <PackageExamples examples={examples} />}
+        {details &&
+          details.length > 0 &&
+          details.map(
+            d =>
+              console.log("DDDD", d) || (
+                <AdditionalDetails key={d.title} {...d} />
+              )
+          )}
       </PkgMain>
     </Pkg>
   )

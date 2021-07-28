@@ -61,6 +61,9 @@ export const PkgSection = styled.section`
   justify-content: center;
   text-align: left;
   margin: ${p => (p.title ? "2rem" : "0")} 1rem;
+  &:not(:first-of-type) {
+    margin: 1rem 0rem;
+  }
 `
 
 const graphWidth = mq({
@@ -77,6 +80,7 @@ export const PkgParagraph = styled.div`
 export const PkgHeading = styled.h2`
   font-family: "News Cycle", sans-serif;
   text-transform: uppercase;
+  margin-top: 0;
 `
 export const PkgFeatures = styled.ul`
   padding: 0;

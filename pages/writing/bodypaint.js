@@ -7,15 +7,15 @@ import Example from "components/Example"
 const paragraphs = {
   one: (
     <>
-      <code>bodypaint</code> is a library for improving the <code>emotion</code>{" "}
-      API for responsive design. It is similar in nature to{" "}
+      {code`bodypaint`} is a library for improving the {code`emotion`} API for
+      responsive design. It is similar in nature to{" "}
       <Link href="//npmjs.org/package/facepaint">facepaint</Link> (and relies
       upon it internally) but has a more natural API.
     </>
   ),
   two: (
     <>
-      bodypaint pairs very well with{" "}
+      {code`bodypaint`} pairs very well with{" "}
       <Link href="/writing/breakpoints">breakpoints</Link>. For a working
       example of the two, please see{" "}
       <Link href="https://github.com/open-sorcerers/breakpoints-and-bodypaint-example">
