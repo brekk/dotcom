@@ -12,51 +12,22 @@ const packageWidth = mq({
     M2: "calc(33.333% - 6rem)",
   },
 })
-const packageBorders = props =>
+
+const packageBordersLastThree = props =>
   mq({
     borderBottom: {
       T0: `1px solid ${mix(1 / 2)(props)}`,
       S3: `1px solid transparent`,
     },
   })
-
-/*
- @keyframes twinkle {
-    from {
-      fill: ${mix(0.1)};
-    }
-    to {
-      fill: ${mix(0.9)};
-    }
-  }
-  @keyframes untwinkle {
-    from {
-      fill: ${mix(0.9)};
-    }
-    to {
-      fill: ${mix(0.1)};
-    }
-  }
-${ifElse(
-        propEq("name", "gitparty"),
-        () => `animation-duration: 0.4s;
-animation-name: twinkle;
-animation-iteration-count: infinite;
-`,
-        () => ``
-      )}
-    }
-    .primary {
-      ${ifElse(
-        propEq("name", "gitparty"),
-        () => `animation-duration: 0.4s;
-animation-name: untwinkle;
-animation-iteration-count: infinite;
-`,
-        () => ``
-      )}
-    }
-    */
+const packageBordersLastTwo = props =>
+  mq({
+    borderBottom: {
+      T0: `1px solid ${mix(1 / 2)(props)}`,
+      S1: `1px solid transparent`,
+      S3: `1px solid transparent`,
+    },
+  })
 
 export const OpenSourcePackage = styled(Link)`
   display: flex;
@@ -86,11 +57,12 @@ export const OpenSourcePackage = styled(Link)`
       fill: ${mix(1 / 2)};
     }
   }
-  &:nth-last-of-type(2) {
-    ${packageBorders}
+  &:nth-last-of-type(3) {
+    ${packageBordersLastThree}
   }
+  &:nth-last-of-type(2),
   &:last-of-type {
-    border-bottom: 1px solid transparent;
+    ${packageBordersLastTwo}
   }
 `
 export const LogoContainer = styled.div`

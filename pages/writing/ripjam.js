@@ -14,7 +14,7 @@ const paragraphs = {
   two: (
     <>
       By default it is designed to work with `jest`, but it should be usable
-      with other testing frameworks.
+      with other <Link href="#custom-hook">testing frameworks</Link>.
     </>
   ),
 }
@@ -136,8 +136,9 @@ shared(
     paragraphs: {
       one: (
         <>
-          If you would like to use a different testing framework, you can
-          manually assemble the same behavior like so:
+          If you would like to use a different testing framework than{" "}
+          {code`jest`}, you can roll your own customized version of the
+          out-of-the-box {code`hook`} that {code`ripjam`} provides like so:
         </>
       ),
     },
